@@ -17,6 +17,15 @@
       <article>
         <div>
           <h1>投稿編集</h1>
+          @if ($errors->any())
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif  
           <div>
             <a href="{{ route('posts.index') }}">&lt; 戻る</a>
           </div>
