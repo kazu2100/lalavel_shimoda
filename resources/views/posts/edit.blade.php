@@ -34,11 +34,11 @@
             @method('patch')
             <div>
               <label for="title">タイトル</label>
-              <input type="text" name="title" value="{{ $post->title }}">
+              <input type="text" name="title" value="{{ old('title', $post->title) }}">
             </div>
             <div>
               <label for="content">本文</label>
-              <textarea name="content">{{ $post->content }}</textarea>
+              <textarea name="content">{{ old('content', $post->content) }}</textarea>
             </div>
             <button type="submit">更新</button>
         </div>
