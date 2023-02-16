@@ -27,3 +27,6 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crea
 
 // 投稿の作成機能
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+
+// 投稿の詳細ページ
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
