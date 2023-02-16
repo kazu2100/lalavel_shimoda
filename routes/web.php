@@ -30,3 +30,9 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 
 // 投稿の詳細ページ
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+
+// 投稿の更新ページ
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+
+// 投稿の更新機能
+Route::patch('/posts/{post}', [PostController::class, 'update'])->name('posts.update');

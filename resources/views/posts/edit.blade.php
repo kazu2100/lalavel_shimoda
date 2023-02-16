@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UFT-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投稿詳細</title>
+    <title>投稿編集</title>
   </head>
   <body>
     <header>
@@ -16,23 +16,22 @@
     <main>
       <article>
         <div>
-          <h1>投稿詳細</h1>
-
-          @if (session('flash_message'))
-            <p>{{ session('flash_message') }}</p>
-          @endif
+          <h1>投稿編集</h1>
           <div>
             <a href="{{ route('posts.index') }}">&lt; 戻る</a>
           </div>
-          <div>
+          <form action="{{ route('posts.update', $post) }}" method="post">
+            @csrf 
+            @method('patch')
             <div>
-              <h2>{{ $post->title }}</h2>
-              <p>{{ $post->content }}</p>
+              <label for="title">タイトル</label>
+              <input type="text" name="title" value="{{ $post->title }}">
             </div>
             <div>
-              <a href="{{ route('posts.edit', $post) }}">編集</a>
+              <label for="content">本文</label>
+              <textarea name="content">{{ $post->content }}</textarea>
             </div>
-          </div>
+            <button type="submit">更新</button>
         </div>
       </article>
     </main>
