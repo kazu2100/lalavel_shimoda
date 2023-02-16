@@ -36,3 +36,6 @@ Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.e
 
 // 投稿の更新機能
 Route::patch('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+
+// 投稿の削除機能
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
