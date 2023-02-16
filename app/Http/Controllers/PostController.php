@@ -9,7 +9,8 @@ use App\Models\Post;
 class PostController extends Controller {
     //一覧ページ
     public function index() {
-        return view('post.index');
+        $posts = Post::latest()->get();
+        return view('posts.index', compact('posts'));
     }
 
     // 作成ページ
@@ -17,7 +18,7 @@ class PostController extends Controller {
         return view('posts.create');
     }
 
-    // 作成昨日
+    // 作成機能
     public function store(Request $request) {
         $post = new Post();
         $post->title = $request->input('title');

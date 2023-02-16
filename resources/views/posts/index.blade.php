@@ -19,12 +19,22 @@
           <h1>投稿一覧</h1>
 
           @if (session('flash_message'))
-          <p>{{ session('flash_message') }}</p>
+            <p>{{ session('flash_message') }}</p>
           @endif
 
           <div>
             <a href="{{ route('posts.create') }}">新規投稿</a>
           </div>
+
+          @foreach($posts as $post)
+          <div>
+            <div>
+              <h2>{{ $post->title }}</h2>
+              <p>{{ $post->content }}</p>
+            </div>
+          </div>
+          @endforeach
+          
         </div>
       </article>
     </main>

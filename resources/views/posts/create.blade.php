@@ -18,7 +18,7 @@
         <div>
           <h1>新規投稿</h1>
           <div>
-            <a href="{{ route('posts.index) }}">&lt; 戻る</a>
+            <a href="{{ route('posts.index') }}">&lt; 戻る</a>
           </div>
           <form action="{{ route('posts.store') }}" method="post">
             @csrf 
